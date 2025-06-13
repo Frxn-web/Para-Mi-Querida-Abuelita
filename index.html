@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Mi Querida Abuelita - Música</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎵 Para Mi Querida Abuelita 🎵</h1>
+            <p>Tus canciones favoritas, fácil y simple</p>
+        </header>
+
+        <div class="player-section">
+            <div class="current-song">
+                <div id="albumArt" class="album-art">🎼</div>
+                <div class="song-info">
+                    <h2 id="songTitle">Selecciona una playlist</h2>
+                    <p id="artistName">Tu música favorita te espera</p>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="prevBtn" class="control-btn">⏮️</button>
+                <button id="playBtn" class="play-btn">▶️</button>
+                <button id="nextBtn" class="control-btn">⏭️</button>
+            </div>
+
+            <div class="volume-control">
+                <span>🔊</span>
+                <input type="range" id="volumeSlider" min="0" max="100" value="70">
+            </div>
+        </div>
+
+        <div class="playlists-section">
+            <h3>Tus Playlists Favoritas</h3>
+            <div class="playlist-grid">
+                <div class="playlist-card" data-playlist="boleros">
+                    <div class="playlist-icon">💕</div>
+                    <h4>Boleros Románticos</h4>
+                    <p>Las canciones de amor de siempre</p>
+                </div>
+                
+                <div class="playlist-card" data-playlist="rancheras">
+                    <div class="playlist-icon">🌹</div>
+                    <h4>Rancheras Clásicas</h4>
+                    <p>La música de México querido</p>
+                </div>
+                
+                <div class="playlist-card" data-playlist="tangos">
+                    <div class="playlist-icon">💃</div>
+                    <h4>Tangos Argentinos</h4>
+                    <p>El alma del tango porteño</p>
+                </div>
+                
+                <div class="playlist-card" data-playlist="valses">
+                    <div class="playlist-icon">🎭</div>
+                    <h4>Valses Peruanos</h4>
+                    <p>La música criolla del corazón</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="current-playlist" id="currentPlaylist" style="display: none;">
+            <h3>Reproduciendo ahora:</h3>
+            <div id="songList" class="song-list"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
