@@ -1,96 +1,27 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para Mi Querida Abuelita - Música</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para Mi Querida Abuelita</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>🎵 Para Mi Querida Abuelita 🎵</h1>
-            <p>Tu música favorita, siempre sonando</p>
-        </header>
-
-        <!-- Panel de administración (solo visible cuando se necesite) -->
-        <div class="admin-panel" id="adminPanel" style="display: none;">
-            <h3>🔧 Configurar Música</h3>
-            <div class="admin-section">
-                <label>Agregar nueva playlist:</label>
-                <input type="text" id="playlistName" placeholder="Nombre de la playlist (ej: Boleros de Amor)">
-                <textarea id="playlistLinks" placeholder="Pega aquí los enlaces de YouTube, uno por línea:
-https://www.youtube.com/watch?v=ejemplo1
-https://www.youtube.com/watch?v=ejemplo2"></textarea>
-                <button onclick="addCustomPlaylist()">Agregar Playlist</button>
-            </div>
-            <div class="admin-section">
-                <label>Tiempo entre cambios automáticos:</label>
-                <select id="autoChangeTime">
-                    <option value="30">30 minutos</option>
-                    <option value="60" selected>1 hora</option>
-                    <option value="120">2 horas</option>
-                    <option value="180">3 horas</option>
-                </select>
-            </div>
-            <button onclick="toggleAdminPanel()" class="close-admin">Cerrar Configuración</button>
-        </div>
-
-        <!-- Botón para abrir configuración (pequeño y discreto) -->
-        <button class="admin-toggle" onclick="toggleAdminPanel()">⚙️</button>
-
-        <div class="player-section">
-            <div class="current-song">
-                <div id="albumArt" class="album-art">🎼</div>
-                <div class="song-info">
-                    <h2 id="songTitle">Preparando tu música...</h2>
-                    <p id="artistName">Un momento, por favor</p>
-                    <p id="playlistName" class="playlist-indicator">🎵 Cargando...</p>
-                </div>
-            </div>
-
-            <!-- Reproductor de audio real -->
-            <audio id="audioPlayer" controls style="width: 100%; margin: 20px 0;">
-                Tu navegador no soporta audio.
-            </audio>
-
-            <div class="controls">
-                <button id="prevBtn" class="control-btn" title="Canción anterior">⏮️</button>
-                <button id="playBtn" class="play-btn" title="Reproducir/Pausar">▶️</button>
-                <button id="nextBtn" class="control-btn" title="Siguiente canción">⏭️</button>
-            </div>
-
-            <div class="volume-control">
-                <span>🔊</span>
-                <input type="range" id="volumeSlider" min="0" max="100" value="70">
-                <span id="volumeDisplay">70%</span>
-            </div>
-
-            <!-- Indicador de reproducción automática -->
-            <div class="auto-indicator">
-                <span id="autoStatus">🔄 Cambio automático en: <span id="countdown">--</span></span>
-                <button id="toggleAuto" onclick="toggleAutoMode()">⏸️ Pausar Auto</button>
-            </div>
-        </div>
-
-        <!-- Playlists grandes y fáciles de tocar -->
-        <div class="playlists-section">
-            <h3>Toca para Escuchar</h3>
-            <div class="playlist-grid" id="playlistGrid">
-                <!-- Las playlists se cargarán aquí dinámicamente -->
-            </div>
-        </div>
-
-        <!-- Lista de canciones actual -->
-        <div class="current-playlist" id="currentPlaylist">
-            <h3>🎵 Reproduciendo ahora:</h3>
-            <div id="songList" class="song-list"></div>
-        </div>
+  <div class="container">
+    <h1>🎵 Para Mi Querida Abuelita 🎵</h1>
+    <div class="admin-panel">
+      <h2>Agregar playlist o canción</h2>
+      <input type="text" id="nombre" placeholder="Nombre para mostrar">
+      <input type="text" id="link" placeholder="Link de Spotify (playlist o canción)">
+      <button onclick="agregarItem()">Agregar</button>
     </div>
-
-    <!-- Notificaciones grandes y claras -->
-    <div id="notification" class="notification"></div>
-
-    <script src="script.js"></script>
+    <div class="playlist-section" id="playlistSection">
+      <!-- Aquí se mostrarán los botones de playlists/canciones -->
+    </div>
+    <div class="player-section">
+      <iframe id="spotifyPlayer" src="" width="100%" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    </div>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
