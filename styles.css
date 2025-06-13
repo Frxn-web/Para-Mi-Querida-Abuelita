@@ -1,410 +1,64 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100vh;
-    color: #333;
-    font-size: 18px; /* Texto más grande por defecto */
+  font-family: Arial, sans-serif;
+  background: #f7fafc;
+  color: #222;
+  margin: 0;
+  padding: 0;
 }
-
 .container {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
+  max-width: 600px;
+  margin: 30px auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  padding: 24px;
 }
-
-header {
-    text-align: center;
-    margin-bottom: 30px;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 25px;
-    border-radius: 20px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+h1 {
+  text-align: center;
+  color: #48bb78;
 }
-
-header h1 {
-    font-size: 3em;
-    color: #4a5568;
-    margin-bottom: 10px;
-}
-
-header p {
-    font-size: 1.4em;
-    color: #666;
-}
-
-/* Panel de administración */
 .admin-panel {
-    background: rgba(255, 255, 255, 0.98);
-    border-radius: 15px;
-    padding: 25px;
-    margin-bottom: 20px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-    border: 3px solid #48bb78;
+  margin-bottom: 24px;
+  background: #e6fffa;
+  padding: 16px;
+  border-radius: 10px;
 }
-
-.admin-section {
-    margin-bottom: 20px;
+.admin-panel input {
+  width: 45%;
+  padding: 8px;
+  margin: 4px 2%;
+  border-radius: 6px;
+  border: 1px solid #b2f5ea;
 }
-
-.admin-section label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 8px;
-    color: #2d3748;
+.admin-panel button {
+  padding: 8px 16px;
+  background: #48bb78;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
 }
-
-.admin-section input, .admin-section textarea, .admin-section select {
-    width: 100%;
-    padding: 12px;
-    border: 2px solid #e2e8f0;
-    border-radius: 8px;
-    font-size: 16px;
-    margin-bottom: 10px;
+.playlist-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 24px;
 }
-
-.admin-section textarea {
-    height: 120px;
-    resize: vertical;
+.playlist-btn {
+  font-size: 1.2em;
+  padding: 18px 24px;
+  background: #f6e05e;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  min-width: 180px;
+  margin: 8px 0;
+  transition: background 0.2s;
 }
-
-.admin-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: #48bb78;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    font-size: 1.5em;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
+.playlist-btn:hover {
+  background: #ecc94b;
 }
-
-.close-admin {
-    background: #e53e3e;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
 .player-section {
-    background: rgba(255, 255, 255, 0.98);
-    border-radius: 25px;
-    padding: 35px;
-    margin-bottom: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-.current-song {
-    display: flex;
-    align-items: center;
-    margin-bottom: 25px;
-    gap: 25px;
-}
-
-.album-art {
-    width: 100px;
-    height: 100px;
-    background: #f7fafc;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5em;
-    border: 4px solid #e2e8f0;
-    flex-shrink: 0;
-}
-
-.song-info h2 {
-    font-size: 1.8em;
-    margin-bottom: 8px;
-    color: #2d3748;
-}
-
-.song-info p {
-    color: #666;
-    font-size: 1.3em;
-    margin-bottom: 5px;
-}
-
-.playlist-indicator {
-    background: #48bb78;
-    color: white;
-    padding: 8px 15px;
-    border-radius: 20px;
-    font-size: 1.1em !important;
-    display: inline-block;
-}
-
-.controls {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    margin: 25px 0;
-}
-
-.control-btn, .play-btn {
-    border: none;
-    border-radius: 50%;
-    font-size: 2em;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-}
-
-.control-btn {
-    width: 80px;
-    height: 80px;
-    background: #e2e8f0;
-}
-
-.play-btn {
-    width: 100px;
-    height: 100px;
-    background: #48bb78;
-    color: white;
-    font-size: 2.5em;
-}
-
-.control-btn:hover, .play-btn:hover {
-    transform: scale(1.1);
-}
-
-.volume-control {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    justify-content: center;
-    margin: 25px 0;
-}
-
-.volume-control span {
-    font-size: 1.8em;
-    min-width: 40px;
-}
-
-#volumeSlider {
-    width: 250px;
-    height: 12px;
-    border-radius: 6px;
-    background: #e2e8f0;
-    outline: none;
-    cursor: pointer;
-}
-
-#volumeDisplay {
-    font-weight: bold;
-    color: #48bb78;
-    min-width: 50px;
-}
-
-.auto-indicator {
-    background: #f7fafc;
-    border: 2px solid #48bb78;
-    border-radius: 15px;
-    padding: 15px;
-    text-align: center;
-    margin-top: 20px;
-}
-
-#autoStatus {
-    font-size: 1.2em;
-    color: #2d3748;
-    display: block;
-    margin-bottom: 10px;
-}
-
-#toggleAuto {
-    background: #ed8936;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-size: 1.1em;
-    cursor: pointer;
-}
-
-.playlists-section h3 {
-    text-align: center;
-    color: white;
-    font-size: 2.2em;
-    margin-bottom: 25px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-}
-
-.playlist-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-    margin-bottom: 30px;
-}
-
-.playlist-card {
-    background: rgba(255, 255, 255, 0.98);
-    border-radius: 20px;
-    padding: 30px;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-    border: 4px solid transparent;
-}
-
-.playlist-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
-}
-
-.playlist-card.active {
-    background: #48bb78;
-    color: white;
-    border-color: #38a169;
-}
-
-.playlist-icon {
-    font-size: 4em;
-    margin-bottom: 15px;
-}
-
-.playlist-card h4 {
-    font-size: 1.6em;
-    margin-bottom: 12px;
-    color: #2d3748;
-}
-
-.playlist-card.active h4,
-.playlist-card.active p {
-    color: white;
-}
-
-.playlist-card p {
-    color: #666;
-    font-size: 1.1em;
-}
-
-.current-playlist {
-    background: rgba(255, 255, 255, 0.98);
-    border-radius: 20px;
-    padding: 25px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-}
-
-.song-list {
-    max-height: 400px;
-    overflow-y: auto;
-}
-
-.song-item {
-    padding: 18px;
-    border-bottom: 2px solid #e2e8f0;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border-radius: 10px;
-    margin-bottom: 8px;
-    font-size: 1.1em;
-}
-
-.song-item:hover {
-    background: #f7fafc;
-    transform: translateX(5px);
-}
-
-.song-item.playing {
-    background: #48bb78;
-    color: white;
-    font-weight: bold;
-}
-
-.notification {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(72, 187, 120, 0.95);
-    color: white;
-    padding: 25px 35px;
-    border-radius: 15px;
-    font-size: 1.4em;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    z-index: 2000;
-    display: none;
-    max-width: 400px;
-    line-height: 1.4;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .container {
-        padding: 15px;
-    }
-    
-    header h1 {
-        font-size: 2.2em;
-    }
-    
-    .current-song {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .playlist-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .controls {
-        gap: 20px;
-    }
-    
-    .control-btn {
-        width: 70px;
-        height: 70px;
-        font-size: 1.8em;
-    }
-    
-    .play-btn {
-        width: 90px;
-        height: 90px;
-        font-size: 2.2em;
-    }
-    
-    #volumeSlider {
-        width: 200px;
-    }
-}
-
-@media (max-width: 480px) {
-    body {
-        font-size: 16px;
-    }
-    
-    .player-section {
-        padding: 25px;
-    }
-    
-    .playlist-card {
-        padding: 25px;
-    }
-    
-    .playlist-icon {
-        font-size: 3.5em;
-    }
-    
-    .admin-toggle {
-        width: 45px;
-        height: 45px;
-        font-size: 1.3em;
-    }
+  text-align: center;
 }
